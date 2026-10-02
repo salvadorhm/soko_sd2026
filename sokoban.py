@@ -12,7 +12,7 @@ class Sokoban:
     def __init__(self) -> None:
         # Definir el mapa
         self.mapa = [
-            [2, 4, 4, 0, 4, 4, 2],
+            [2, 4, 4, 0, 4, 4, 4, 4, 4, 4,4, 2],
         ]
         # Definir la posicion inicial del personaje
         self.personaje_fila = 0
@@ -33,8 +33,11 @@ class Sokoban:
             self.mapa[self.personaje_fila][self.personaje_columna] == 0
             and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 4
         ):
+            # Coloca un camino donde estaba el personaje
             self.mapa[self.personaje_fila][self.personaje_columna] = 4
+            # Coloca el personaje donde estaba el camino
             self.mapa[self.personaje_fila][self.personaje_columna + 1] = 0
+            # Actuliza la nueva posición del personaje
             self.personaje_columna = self.personaje_columna + 1
 
     def jugar(self) -> None:
@@ -44,17 +47,17 @@ class Sokoban:
         w - Arriba
         s - Abajo
         """
-
-        self.imprmirMapa()
-        movimiento = input("Movimiento: ")
-        if movimiento == "d":
-            self.derecha()
-        elif movimiento == "a":
-            pass
-        elif movimiento == "w":
-            pass
-        elif movimiento == "s":
-            pass
+        while True:
+            self.imprmirMapa()
+            movimiento = input("Movimiento: ")
+            if movimiento == "d":
+                self.derecha()
+            elif movimiento == "a":
+                pass
+            elif movimiento == "w":
+                pass
+            elif movimiento == "s":
+                pass
 
 
 soko = Sokoban()
